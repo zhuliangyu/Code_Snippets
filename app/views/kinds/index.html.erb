@@ -1,0 +1,9 @@
+<h1>Show all kinds</h1>
+
+
+<% @kinds.each do |kind| %>
+    <%= kind.name %>
+    <%= kind.codes.count %>
+    <%= link_to "Go to ", kind_path(kind)%>
+    <hr>
+<% end %>

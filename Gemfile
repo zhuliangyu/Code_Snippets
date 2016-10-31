@@ -44,7 +44,8 @@ gem 'factory_girl_rails'
 gem 'rails-controller-testing'
 gem 'bcrypt'
 gem 'cancancan'
-
+  gem 'meta_request'
+  gem 'pry-rails'
 end
 
 group :development do

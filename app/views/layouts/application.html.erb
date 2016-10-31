@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CodeSnippets</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>CodeSnippets</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+
+<body>
+<!--NAV-->
+<ul>
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "New Code Snappits", new_code_path %></li>
+  <li><%= link_to "List Code Snappits", codes_path %></li>
+  <li><%= link_to "List Language Kinds", kinds_path %></li>
+  <li><%= link_to "New User Sign Up", new_user_path %></li>
+  <% if user_sign_in? %>
+      <li>Hi,<%= current_user.name %></li>
+      <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+  <% else %>
+      <li><%= link_to "Sign in", new_session_path %></li>
+  <% end %>
+</ul>
+<!--NAV-->
+
+<!--Notice-->
+<hr>
+<%= notice %>
+<%= flash[:alert] %>
+<hr>
+<!--Notice-->
+
+<%= yield %>
+</body>
 </html>

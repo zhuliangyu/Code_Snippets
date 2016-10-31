@@ -1,0 +1,16 @@
+<% @codes.each do |code| %>
+    Title: <%= code.title %>
+    <br>
+    Work: <%= code.work %>
+    <br>
+    Kind:
+    <%= Kind.find(code.kind_id).name %>
+    <br>
+    <% if user_sign_in? %>
+    <%= link_to "Edit", edit_code_path(code)%>
+    <%= link_to "Delete",code_path(code),method: :delete	 %>
+    <% end %>
+        <hr>
+
+
+<% end %>
